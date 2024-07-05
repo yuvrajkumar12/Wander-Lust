@@ -4,8 +4,6 @@ const mongoose=require("mongoose");
 const Listing = require("./Models/listing.js");
 const path=require("path");
 
-
-
 const mongo_url="mongodb://127.0.0.1:27017/WandeLust";
 main().then(()=>{
     console.log("connected to db");
@@ -32,12 +30,18 @@ app.get("/listings",async(req,res)=>{
 
 });
 
+//new Rot
+app.get("/listingss/new",(req,res)=>{
+    res.render("listings/new.ejs");
+});
 //Show Rout
 app.get("/listings/:id",async(req,res)=>{
     let {id}=req.params;
     const listing =await Listing.findById(id);
     res.render("listings/show.ejs",{listing});
 });
+
+
 // app.get("/testListing",async(req,res)=>{
 //     let sampleListing = new Listing({
 //         title:"My Home",
