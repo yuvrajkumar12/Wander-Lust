@@ -1,29 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WanderLust</title>
-</head>
-<body>
+  </head>
+  <body>
+    <h3>Create a New Listing</h3>
     <form method="POST" action="/listings">
-        <input name="title" placeholder="Enter title" type="text">
-        <br>
-        <textarea name="description" placeholder="Enter Your Description"></textarea>
-        <br>
-        <input name="image" placeholder="Enter Your URL/Link" type="text">
-        <br>
-        <input name="price" placeholder="Enter Price" type="number">
-        <br>
-        <input type="text" name="title" placeholder="Enter Your Title">
-        <br>
-        <input type="text" name="country" placeholder="Enter Your country Name">
-        <br>
-        <input type="text" name="Location" placeholder="Enter Your Location">
-        <br>
-        <input type="text" name="City" placeholder="Enter Your City Name">
-        <br>
-        <button>Submit</button>
+      <input name="listing[title]" placeholder="enter title" type="text" />
+      <br /><br />
+      <textarea
+        name="listing[description]"
+        placeholder="enter description"
+      ></textarea>
+      <br /><br />
+      <input
+        name="listing[image]"
+        placeholder="enter image URL/Link"
+        type="text"
+      />
+      <br /><br />
+      <input name="listing[price]" placeholder="enter price" type="number" />
+      <br /><br />
+      <input name="listing[country]" placeholder="enter country" type="text" />
+      <br /><br />
+      <input
+        name="listing[location]"
+        placeholder="enter location"
+        type="text"
+      />
+      <br /><br />
+      <button>Add</button>
     </form>
-</body>
+  </body>
 </html>
