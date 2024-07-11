@@ -5,6 +5,7 @@ const Listing = require("./Models/listing.js");
 const path=require("path");
 const methodOverride = require("method-override");
 const ejsMate=require("ejs-mate"); //it create layout npm instal ejs-mate
+const cors=require("cors");
 
 const mongo_url="mongodb://127.0.0.1:27017/WandeLust";
 main().then(()=>{
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine('ejs',ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
+app.use(cors());
 
 
 app.get("/",(req,res)=>{
