@@ -1,10 +1,13 @@
 {
   "dependencies": {
+    "corb": "^0.0.1-security",
     "cors": "^2.8.5",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
     "express": "^4.19.2",
     "method-override": "^3.0.0",
-    "mongoose": "^8.4.5"
+    "mongoose": "^8.4.5",
+    "nodemon": "^3.1.4",
+    "public": "^0.1.5"
   }
 }

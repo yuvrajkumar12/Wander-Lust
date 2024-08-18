@@ -3,6 +3,7 @@ const app = express();
 const mongoose=require("mongoose");
 const Listing = require("./Models/listing.js");
 const path=require("path");
+
 const methodOverride = require("method-override");
 const ejsMate=require("ejs-mate"); //it create layout npm instal ejs-mate
 const cors=require("cors");
@@ -17,27 +18,25 @@ async function main(){
     await mongoose.connect(mongo_url);
 }
 
-
+app.engine('ejs', ejsMate);
 app.set("view engine","ejs");
+app.use(express.static('public'));
 app.set("views", path.join(__dirname,"views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
-app.engine('ejs',ejsMate);
+app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
 app.use(cors());
 
 
 app.get("/",(req,res)=>{
-    res.send("hi, I am root");cdd
+    res.send("hi, I am root");
 });
-
-
-app.get("/listings",async(req,res)=>{
-    const alllisting=await Listing.find({});
-    res.render("listings/index.ejs",{alllisting});
-
-});
-
+app.get("/listings", async (req, res) => {
+        const alllisting = await Listing.find({});
+        res.render("listings/index", { alllisting });
+        
+ });
 //new Rot
 app.get("/listings/new",(req,res)=>{
     res.render("listings/new.ejs");
@@ -92,6 +91,6 @@ app.delete("/listings/:id",async(req,res)=>{
 //     res.send("successfull testing");
 // });
 
-app.listen(8080,()=>{
+app.listen(8000,()=>{
     console.log("server is listen");
 });
