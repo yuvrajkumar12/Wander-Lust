@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "axios": "^1.7.4",
     "corb": "^0.0.1-security",
     "cors": "^2.8.5",
     "ejs": "^3.1.10",

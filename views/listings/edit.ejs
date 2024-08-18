@@ -7,23 +7,21 @@
     <form method="POST" action="/listings/<%=listing._id %>?_method=PUT">
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
-        <input name="listing[title]" value="<%= listing.title%>" type="text"  class="form-control"/>
+        <input name="listing[title]" value="<%= listing.title%>" type="text" id="title"  class="form-control"/>
 
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>
-          <textarea
-          name="listing[description]"
-          class="form-control"
-          value="<%=listing.description %>"
-          
-          ></textarea>
+        <textarea 
+          name="listing[description]" 
+          id="description"
+          class="form-control"><%= listing.description %></textarea>
       </div>
       
       <div class="mb-3">
-        <label for="Image Link" class="form-label">Image Link</label>
+        <label for="Image" class="form-label">Image Link</label>
         <input
-        value="<%= listing.Image%>"
+        value="<%= listing.Image%>" id="Image" name="Image"
           placeholder="enter image URL/Link"
           type="text"
           class="form-control"
@@ -33,27 +31,30 @@
     <div class="row">
       <div class="md-3 col-md-4">
         <div class="mb-3">
-          <label for="Price" class="form-label">Price</label>
-          <input name="listing[price]" value="<%= listing.price%>" type="number" class="form-control"/>
+          <label for="price" class="form-label">Price</label>
+          <input name="listing[price]" value="<%= listing.price%>" id="price" type="number" class="form-control"/>
         </div>
       </div>
       <div class="md-3 col-md-8">
         <div class="mb-3">
-          <label for="Country " class="form-label">Country</label>
+          <label for="country" class="form-label">Country</label>
           <input 
           name="listing[country]" 
           value="<%= listing.country %>" 
-          type="text"  
+          id="country"
+          type="text"
+          autocomplete="given-name"
           class="form-control"/>
         </div>
       </div>
     </div>
 
     <div class="mb-3">
-      <label for="Location" class="form-label">Location</label>
+      <label for="location" class="form-label">Location</label>
       <input
         name="listing[location]"
         value="<%= listing.location%>"
+        id="location"
         type="text"
         class="form-control"
       />
