@@ -1,20 +1,25 @@
 <% layout("/layouts/boilerplate") %>
-<body>
-    <h3>listing Details: </h3>
-   <ul>
-    <li><%=listing.title %></li>
-    <li>
-        <%= listing.Image %>
-    </li>
-    <li><%=listing.description %></li>
-    <li>&#8377;<%=listing.price.toLocaleString("en-IN") %></li>
-    <li><%=listing.location %></li>
-
-   </ul>
-   <br>
-   <a href="/listings/<%= listing._id %>/edit">Edit listing</a>
-   <br><br>
-   <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
-    <button>Delet This listing </button>
-   </form>
-</body>
+<div class="row">
+  <div class="col-8 offset-2">
+      <h3>listing Details: </h3>
+      <div class="card col-6">
+        <img src="https://images.unsplash.com/photo-1444084316824-dc26d6657664?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top show-image" alt="listing_Image">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+      <ul>
+          <li><%=listing.title %></li>
+          <li><%=listing.description %></li>
+          <li>&#8377;<%=listing.price.toLocaleString("en-IN") %></li>
+          <li><%=listing.location %></li>
+      </ul>
+      <br>
+      <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark add-btn">
+        <span>✎</span> Edit listing
+      </a>
+      <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE" style="display:inline;">
+        <button class="btn btn-dark add-btn" type="submit"> <span style="color: #ffffff;">🗑️</span>Delete Post</button>
+      </form>
+  </div>
+</div>
