@@ -1,4 +1,5 @@
 const mongoose=require("mongoose");
+const review = require("./review");
 const Schema=mongoose.Schema;
 
 const listingSchema=new Schema({
@@ -7,14 +8,21 @@ const listingSchema=new Schema({
         require: true,
     },
     description: String,
-    Image:{ 
+    image:{ 
         type: String,
         default:"https://unsplash.com/photos/aerial-photography-of-high-rise-building-9CPAjGVB378",
-        set: (v)=>v==""?"https://unsplash.com/photos/aerial-photography-of-high-rise-building-9CPAjGVB378":v,
+        set: (v)=>v===""?"https://unsplash.com/photos/aerial-photography-of-high-rise-building-9CPAjGVB378":v,
     },
     price:Number,
     location: String,
-    Country:String
+    country:String,
+    reviews:[
+        {
+            type:Schema.Types.ObjectId,
+            ref:"Review "
+
+        }
+    ]
 });
 
 //Create Modle

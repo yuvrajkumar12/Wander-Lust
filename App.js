@@ -6,6 +6,7 @@ const path=require("path");
 
 const methodOverride = require("method-override");
 const ejsMate=require("ejs-mate"); //it create layout npm instal ejs-mate
+const Review = require("./Models/review.js");
 const cors=require("cors");
 
 const mongo_url="mongodb://127.0.0.1:27017/WandeLust";
@@ -78,7 +79,16 @@ app.delete("/listings/:id",async(req,res)=>{
     res.redirect("/listings");
 });
 
-//
+//Reviews
+//Post Route
+app.post("/listings/:id/reviews", async(req,res)=>{
+    let listing= await Listing.findById(req.params.id);
+    let newReview=new Review(req.body.review);
+    listing.reviews.push(newReview);
+    await newReview.save();
+    await listing.save();
+    res.redirect(`/listings/${listing._id}`);
+});
 // app.get("/testListing",async(req,res)=>{
 //     let sampleListing = new Listing({
 //         title:"My Home",
