@@ -7,7 +7,9 @@ const path=require("path");
 const methodOverride = require("method-override");
 const ejsMate=require("ejs-mate"); //it create layout npm instal ejs-mate
 const Review = require("./Models/review.js");
-const cors=require("cors");
+// const cors=require("cors");
+// app.use(express.static('public'));
+
 
 const mongo_url="mongodb://127.0.0.1:27017/WandeLust";
 main().then(()=>{
@@ -21,13 +23,13 @@ async function main(){
 
 app.engine('ejs', ejsMate);
 app.set("view engine","ejs");
-app.use(express.static('public'));
+// app.use(express.static('public'));
 app.set("views", path.join(__dirname,"views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.engine("ejs",ejsMate);
 app.use(express.static(path.join(__dirname,"/public")));
-app.use(cors());
+// app.use(cors());
 
 
 app.get("/",(req,res)=>{
@@ -43,17 +45,20 @@ app.get("/listings/new",(req,res)=>{
     res.render("listings/new.ejs");
 });
 //Show Rout
-app.get("/listings/:id",async(req,res)=>{
-    let {id}=req.params;
-    const listing =await Listing.findById(id);
-    res.render("listings/show.ejs",{listing});
+app.get("/listings/:id", async (req, res) => {
+    let { id } = req.params;
+    const listing = await Listing.findById(id);
+    res.render("listings/show.ejs", { listing });
 });
+
 
 //Create Rout Add
 app.post("/listings", async (req, res) => {
-    const newListing = new Listing(req.body.listing);
-    await newListing.save();
+    const newlisting=new Listing(req.body.listing);
+    await newlisting.save();
+    console.log(newlisting);
     res.redirect("/listings");
+   
 });
 
 //Edit Rout

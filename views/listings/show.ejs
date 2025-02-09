@@ -4,7 +4,7 @@
     <b><%=listing.title %></b> <br>
   </div>
       <div class="card col-6 offset-3 show-card">
-        <img src="https://unsplash.com/photos/aerial-photography-of-high-rise-building-9CPAjGVB378" class="card-img-top show-image" alt="listing_Image">
+        <img src="<%= listing.image.url %>" class="card-img-top show-image" alt="listing_Image">
         <div class="card-body">
           <p class="card-text">
            
@@ -23,7 +23,7 @@
         </form>
       </div>
    
-  <div class="col-8 offset-3 mb-3">
+<div class="col-8 offset-3 mb-3">
     <h4>Leave a Review</h4>
     <form action="/listings/<%=listing.id %>/reviews" method="POST" novalidate class="need-validation">
       <div class="mb-3 mt-3">

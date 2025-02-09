@@ -5,7 +5,7 @@
     <% for(let listing of alllisting) { %>
         <div class="card col " style="width: 20rem;">
             <!-- Corrected to output the image URL -->
-            <img src="https://images.unsplash.com/photo-1444084316824-dc26d6657664?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="<%= listing.title %>">
+            <img src="<%=listing.image.url %>" class="card-img-top" alt="<%= listing.title %>">
             <div class="card-body">
                 <h5 class="card-title"><%= listing.text %></h5>
                 <p class="card-text">
